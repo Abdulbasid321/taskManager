@@ -14,7 +14,7 @@ const app = express();
 const uri = process.env.MONGO_URI 
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json()); // Parse JSON requests
 
 
