@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const taskRoute = require("./routes/task.routes");
 const userRoute = require("./routes/user.routes");
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
 
 // const port = 5000;
 const port = process.env.PORT || 3000;
@@ -15,9 +17,15 @@ const uri = process.env.MONGO_URI
 app.use(cors());
 app.use(express.json()); // Parse JSON requests
 
+
+
 // Routes
 app.use("/tasks", taskRoute);
 app.use("/users", userRoute);
+
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
 
 mongoose
   .connect(uri)
