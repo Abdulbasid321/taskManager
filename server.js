@@ -24,9 +24,8 @@ app.use("/tasks", taskRoute);
 app.use("/users", userRoute);
 
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-
 mongoose
   .connect(uri)
   .then(() => {
