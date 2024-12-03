@@ -8,5 +8,15 @@
     "mongoose": "^8.8.2",
     "passport": "^0.7.0",
     "validator": "^13.12.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "taskapp",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
