@@ -74,10 +74,8 @@ module.exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Call the User.login method
     const user = await User.login(email, password);
 
-    // Generate a JWT token
     const token = jwt.sign(
       {
         data: { id: user._id, email: user.email },
@@ -88,10 +86,10 @@ module.exports.login = async (req, res) => {
 
     res.status(200).json({ message: "Login successful", user, token });
   } catch (err) {
-    // Return a friendly error message
     res.status(400).json({ error: "Invalid email or password" });
   }
 };
+
 
 module.exports.getAll = async (req, res) => {
   try {
